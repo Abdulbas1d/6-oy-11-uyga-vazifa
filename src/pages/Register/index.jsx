@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './index.css'
 import { registerApi } from '../../axios'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import HideImage from '../../assets/images/hide_icon.png'
 import ShowImage from '../../assets/images/show_icon.webp'
 
@@ -122,6 +122,8 @@ function Register() {
         <button onClick={handleRegister} className="btn" type='submit' disabled={loading}>
           {loading ? "LOADING..." : "REGISTER"}
         </button>
+
+        <NavLink className="link" to='/login'>Enter to Login page</NavLink>
       </form>
     </div>
   )

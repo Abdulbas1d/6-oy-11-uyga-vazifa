@@ -117,4 +117,17 @@ h2 {
         letter-spacing: 0.5px;
         cursor: pointer;
     }
+
+    .link {
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff;
+        margin-left: 430px;
+        margin-top: 12px;
+    }
+
+    .link:hover {
+        color: rgb(36, 26, 182);
+        text-decoration: underline;
+    }
 }
