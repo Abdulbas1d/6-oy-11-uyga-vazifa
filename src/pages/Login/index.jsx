@@ -56,7 +56,7 @@ function Login() {
             if (response.status == 200) {
                 localStorage.setItem('user', JSON.stringify(response.data))
                 localStorage.setItem('token', response.data.accessToken)
-                navigate('/')
+                navigate('/', {state: {token: response.data.accessToken}})
             }
         })
 
