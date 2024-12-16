@@ -1,10 +1,12 @@
 import React from 'react'
 import './index.css'
 
-function MainLayout() {
+function MainLayout({children}) {
   return (
-    <div>
-      
+    <div className='container'>
+      <header className="header"></header>
+
+      {children}
     </div>
   )
 }
