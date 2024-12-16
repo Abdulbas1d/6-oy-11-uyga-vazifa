@@ -3,7 +3,7 @@ import './index.css'
 import { registerApi } from '../../axios'
 import { useNavigate } from 'react-router-dom'
 import HideImage from '../../assets/images/hide_icon.png'
-import ShowImage from '../../assets/images/show_icon.png'
+import ShowImage from '../../assets/images/show_icon.webp'
 
 function Register() {
   const [username, setUsername] = useState("")
@@ -108,10 +108,16 @@ function Register() {
         <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" name="email" id="email" placeholder='Enter your email...' />
 
         <label htmlFor="password">Enter Your Password</label>
-        <input value={password} onChange={(e) => { setPassword(e.target.value) }} type="password" name="password" id="password" placeholder='Enter your password...' />
+        <div className="password">
+          <input value={password} onChange={(e) => { setPassword(e.target.value) }} type={passwordOne ? "text" : "password"} name="password" id="password" placeholder='Enter your password...' />
+          <img src={passwordOne ? HideImage : ShowImage} onClick={() => setPasswordOne(!passwordOne)} alt="" />
+        </div>
 
         <label htmlFor="rePassword">Enter Your Re-Password</label>
-        <input value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} type="password" name="rePassword" id="rePassword" placeholder='Re-Enter your password...' />
+        <div className="rePassword">
+          <input value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} type={passwordTwo ? "text" : "password"} name="rePassword" id="rePassword" placeholder='Re-Enter your password...' />
+          <img src={passwordTwo ? HideImage : ShowImage} onClick={() => setPasswordTwo(!passwordTwo)} alt="" />
+        </div>
 
         <button onClick={handleRegister} className="btn" type='submit' disabled={loading}>
           {loading ? "LOADING..." : "REGISTER"}
