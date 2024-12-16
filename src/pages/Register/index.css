@@ -61,12 +61,4 @@ h2 {
         letter-spacing: 0.5px;
         cursor: pointer;
     }
-
-    .btn:hover {
-        background-color: #fff;
-        color: rgb(36, 26, 182);
-        border: 3px solid rgb(36, 26, 182);
-        font-size: 24px;
-        font-weight: 700;
-    }
 }

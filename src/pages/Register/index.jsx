@@ -2,12 +2,17 @@ import React, { useState } from 'react'
 import './index.css'
 import { registerApi } from '../../axios'
 import { useNavigate } from 'react-router-dom'
+import HideImage from '../../assets/images/hide_icon.png'
+import ShowImage from '../../assets/images/show_icon.png'
 
 function Register() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [rePassword, setRePassword] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [passwordOne, setPasswordOne] = useState(false)
+  const [passwordTwo, setPasswordTwo] = useState(false)
   const navigate = useNavigate()
 
   function validate() {
@@ -63,6 +68,8 @@ function Register() {
       password: password
     }
 
+    setLoading(true)
+
     registerApi.post(`auth/signup`, user, {
       headers: {
         "Content-Type": "application/json"
@@ -78,6 +85,10 @@ function Register() {
         if (error.status == 400) {
           alert("Email or Username already registered")
         }
+      })
+
+      .finally(() => {
+        setLoading(false)
       })
 
     setUsername("")
@@ -102,7 +113,9 @@ function Register() {
         <label htmlFor="rePassword">Enter Your Re-Password</label>
         <input value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} type="password" name="rePassword" id="rePassword" placeholder='Re-Enter your password...' />
 
-        <button onClick={handleRegister} className="btn" type='submit'>Register</button>
+        <button onClick={handleRegister} className="btn" type='submit' disabled={loading}>
+          {loading ? "LOADING..." : "REGISTER"}
+        </button>
       </form>
     </div>
   )
