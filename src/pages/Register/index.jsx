@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import './index.css'
 import { registerApi } from '../../axios'
 import { useNavigate } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   const [username, setUsername] = useState("")
@@ -11,7 +9,6 @@ function Register() {
   const [password, setPassword] = useState("")
   const [rePassword, setRePassword] = useState("")
   const navigate = useNavigate()
-  const notify = (message) => toast(message);
 
   function validate() {
     if (!username) {
@@ -71,27 +68,22 @@ function Register() {
         "Content-Type": "application/json"
       }
     })
-
       .then(response => {
         if (response.status == 200) {
-          return response.json()
-        }
-      })
-
-      .then(data => {
-        if (data.message == "Failed! Username is already in use!" || data.message == "Failed! Email is already in use!") {
-          notify(data.message)
-        }
-
-        if (data.message == "User registered successfully!") {
-          notify(data.message)
           navigate('/login')
         }
       })
 
       .catch(error => {
-        console.log(error);
+        if (error.status == 400) {
+          alert("Email or Username already registered")
+        }
       })
+
+    setUsername("")
+    setEmail("")
+    setPassword("")
+    setRePassword("")
   }
 
   return (
@@ -111,19 +103,6 @@ function Register() {
         <input value={rePassword} onChange={(e) => { setRePassword(e.target.value) }} type="password" name="rePassword" id="rePassword" placeholder='Re-Enter your password...' />
 
         <button onClick={handleRegister} className="btn" type='submit'>Register</button>
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          limit={1}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
       </form>
     </div>
   )
