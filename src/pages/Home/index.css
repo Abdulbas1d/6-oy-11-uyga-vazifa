@@ -3,4 +3,108 @@
     height: 100vh;
     margin: 0 auto;
     background-color: rgb(250, 250, 250);
+    position: relative;
+    bottom: 70px;
+}
+
+.logo {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    gap: 25px;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    h3 {
+        margin-right: 800px;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 33px;
+        color: rgba(17, 21, 23, 1);
+        letter-spacing: 0.5px;
+    }
+
+    .right {
+        display: flex;
+        gap: 20px;
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+
+        h4 {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 22px;
+            color: rgba(17, 21, 23, 1);
+            position: relative;
+            top: 5px;
+        }
+    }
+}
+
+.language {
+    width: 1440px;
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-top: 40px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+        display: flex;
+
+        img {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            left: 42px;
+            top: 10px;
+        }
+
+        input {
+            width: 430px;
+            height: 50px;
+            border: none;
+            outline: none;
+            padding-left: 60px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 450;
+            color: rgba(132, 132, 132, 1);
+            letter-spacing: 0.7px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border: 0.5px solid rgb(174, 170, 170);
+        }
+    }
+
+    select {
+        width: 180px;
+        height: 45px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        font-size: 16px;
+        letter-spacing: 0.4px;
+        color: rgba(132, 132, 132, 1);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border: 0.5px solid rgb(174, 170, 170);
+    }
+}
+
+.cards {
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    .card {
+        width: 23%;
+    }
 }
